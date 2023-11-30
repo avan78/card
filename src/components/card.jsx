@@ -13,16 +13,7 @@ export const Card = () => {
 
    //check the length of the input, set the values in state and handle the focus on the next field
    const stepForward = (cardNumber, fieldIndex) => {
-
-        // focus on the back
-        // if (inputValue.length === 0 && key === "Backspace" && fieldIndex !== 0) {
-        //     console.log("prev");
-            // setCheckActive(true);
-            // setCardProps({...cardProps, actual: field});
-           // console.log("field", field);
-        // }
-
-        // focus on the next
+        // focus on the next field
         if (cardNumber.length === 4 && fieldIndex !== 3) {
             inputRefs[fieldIndex + 1].current.focus();            
         }
@@ -55,7 +46,7 @@ export const Card = () => {
     return(
         <>
         <div style={{display: "flex"}}>
-             <input type="text" id={cardProps.fields[0]} onKeyDown={(e) => stepBack(e, 0)} onChange={(e) => {stepForward(e.target.value, 0)}}  value={cardProps.fields[0]}  maxLength={4} ref={inputRefs[0]}/>
+             <input type="text" id={cardProps.fields[0]} onKeyDown={(e) => stepBack(e, 0)} onChange={(e) => {stepForward(e.target.value, 0)}} value={cardProps.fields[0]} maxLength={4} ref={inputRefs[0]}/>
              <input type="text" id={cardProps.fields[1]} onKeyDown={(e) => stepBack(e, 1)} onChange={(e) => {stepForward(e.target.value, 1)}} value={cardProps.fields[0]} maxLength={4} ref={inputRefs[1]}/>
              <input type="text" id={cardProps.fields[2]} onKeyDown={(e) => stepBack(e, 2)} onChange={(e) => {stepForward(e.target.value, 2)}} value={cardProps.fields[0]} maxLength={4} ref={inputRefs[2]}/>
              <input type="text" id={cardProps.fields[3]} onKeyDown={(e) => stepBack(e, 3)} onChange={(e) => {stepForward(e.target.value, 3)}} value={cardProps.fields[0]} maxLength={4} ref={inputRefs[3]}/>
